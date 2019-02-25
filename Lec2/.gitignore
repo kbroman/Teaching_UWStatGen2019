@@ -1,0 +1,6 @@
+R/cache/
+R/_cache/
+R/Perms/
+*.aux
+*.log
+*.out
