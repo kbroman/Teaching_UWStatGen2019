@@ -1,0 +1,102 @@
+\documentclass[12pt]{article}
+
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+
+% revise margins
+\setlength{\headheight}{0.0in}
+\setlength{\topmargin}{-0.45in}
+\setlength{\headsep}{0.0in}
+\setlength{\textheight}{9.55in}
+\setlength{\footskip}{0.35in}
+\setlength{\oddsidemargin}{-0.25in}
+\setlength{\evensidemargin}{-0.25in}
+\setlength{\textwidth}{7.0in}
+
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0pt}
+
+\hypersetup{pdfpagemode=UseNone} % don't show bookmarks on initial view
+\hypersetup{colorlinks, urlcolor={blue}}
+
+\begin{document}
+\thispagestyle{empty}
+
+
+Stat 877: Statistical methods for molecular biology (Spring, 2019)\\
+\textbf{Homework \#3}: QTL mapping
+
+\textbf{Due 14 March 2019}
+
+\bigskip
+
+We will consider a set of simulated data from a backcross with 300 individuals, with a
+single quantitative phenotype.  A selective genotyping strategy was
+used: only the top 46 and bottom 46 individuals, by phenotype, were
+genotyped.
+
+\begin{enumerate}
+\item Grab the comma-delimited data file at
+
+{\footnotesize \tt
+\verb| | \href{http://www.biostat.wisc.edu/~kbroman/teaching/uwstatgen/hw3.csv}{http://www.biostat.wisc.edu/{\textasciitilde}kbroman/teaching/uwstatgen/hw3.csv}
+}
+
+and place it in your R working directory.
+
+Within R, you'll need to install R/qtl via
+{\footnotesize \verb|install.packages("qtl")|}
+
+Then load R/qtl via {\footnotesize \verb|library(qtl)|}
+
+Then import the data file via {\footnotesize \verb|hw <- read.cross("csv", file="hw3.csv")|}
+
+
+\item Use each of standard interval mapping (by the EM algorithm) and
+  Haley-Knott regression to map QTL in this cross.  Also, use a
+  permutation test to establish significance of identified QTL, and
+  calculate 1.5-LOD support intervals for the locations of inferred
+  QTL.
+
+Do two versions of the permutation test: the usual kind plus a
+stratified permutation test (with individuals stratified by the amount
+of genotyping, and with permutations performed within these two strata).
+
+\bigskip
+{\footnotesize
+To perform the stratified permutation test, do something like this:
+\vspace{-12pt}
+{\footnotesize
+\begin{verbatim}
+    nt <- ntyped(hw)
+    strat <- as.numeric(nt > mean(unique(nt)))
+    operm <- scanone(hw, method="hk", n.perm=1000, perm.strat=strat)
+\end{verbatim}
+}}
+
+\item How do the results change if you omit the individuals that were
+  not genotyped?
+
+\bigskip
+{\footnotesize
+To drop the non-genotyped, individuals, use code like
+\vspace{-12pt}
+{\footnotesize
+\begin{verbatim}
+    hw_sub <- subset(hw, ind=(ntyped(hw) > 0))
+\end{verbatim}
+}}
+
+\item What do you conclude, regarding the behavior of standard
+  interval mapping vs Haley-Knott regression in the presence of
+  selective genotyping, and regarding the use of an unstratified vs
+  stratified permutation test?
+
+\end{enumerate}
+
+
+
+
+\end{document}
