@@ -72,7 +72,7 @@
 
 \vspace*{15mm}
 
-Basic QTL mapping
+Introduction to QTL mapping
 
 \color{mypink}
 \rule{10in}{1mm}
@@ -217,6 +217,31 @@ Goals
 \item Interval estimates of QTL location
 \item Estimated QTL effects
 \end{itemize} \end{minipage}
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Statistical structure
+\end{minipage}
+
+\vspace{2cm} \color{mywhite} \smallersize
+
+\centerline{\includegraphics{Figs/structure.pdf}}
+
+\vspace{15mm}
+
+\hspace*{3cm}\begin{tabular}{lll}
+{\color{mypink} The missing data problem:}  & \hspace{15mm} &
+Markers $\longleftrightarrow$ QTL \\[15mm]
+
+{\color{mypink} The model selection problem:}
+& & QTL, covariates $\longrightarrow$ phenotype
+\end{tabular}
+
+
+
 
 \newpage
 
@@ -617,7 +642,6 @@ $\boldsymbol{\rightarrow}$ R
 \item \verb|nind()|, \verb|nmar()|, \verb|totmar()|, \verb|nchr()|, \verb|nphe()|
 \item \verb|calc.genoprob()|
 \item \verb|scanone()|
-\item \verb|iplotScanone()| from \href{http://kbroman.org/qtlcharts}{R/qtlcharts}
 \end{itemize} \end{minipage}
 
 
@@ -767,20 +791,6 @@ Permutation results
 
 
 
-\newpage
-
-\headsize \color{myyellow}
-\hfill \begin{minipage}{5.75in}
-\centering
-\href{http://www.biostat.wisc.edu/~kbroman/D3/lod_random/}{Interactive plot}
-\end{minipage}
-
-\vspace{2cm}
-
-\centerline{\href{http://www.biostat.wisc.edu/~kbroman/D3/lod_random}{\includegraphics[width=10in]{Figs/interactive_perm_test.png}}}
-
-\vspace*{1cm}
-
 
 
 
@@ -924,373 +934,6 @@ H-K with selective genotyping
 
 
 
-\newpage
-
-\headsize \color{myyellow}
-\hfill \begin{minipage}{5.75in}
-\centering
-Multiple imputation
-\end{minipage}
-
-\vfill
-
-\centerline{\includegraphics{Figs/imp.pdf}}
-
-
-\newpage
-
-\headsize \color{myyellow}
-\hfill \begin{minipage}{5.75in}
-\centering
-Multiple imputations
-\end{minipage}
-
-\vfill
-
-\centerline{\includegraphics[height=6.5in]{Figs/multiimp.png}}
-
-
-
-\newpage
-
-\headsize \color{myyellow}
-\hfill \begin{minipage}{5.75in}
-\centering
-Imputation LOD curves
-\end{minipage}
-
-\vfill
-
-\centerline{\includegraphics{Figs/imp_lod.pdf}}
-
-
-
-
-\newpage
-
-\headsize \color{myyellow}
-$\boldsymbol{\rightarrow}$ R
-
-\vspace{3cm}
-
-\color{mywhite} \smallsize
-
-\hfill \begin{minipage}[t]{9.5in}
-\begin{itemize}
-\itemsep24pt
-\item \verb|sim.geno()|
-\item \verb|scanone()| with \verb|method="imp"|
-\end{itemize} \end{minipage}
-
-
-
-
-\newpage
-
-\headsize \color{myyellow}
-\hfill \begin{minipage}{5.75in}
-\centering
-Summary comparison
-\end{minipage}
-
-
-\vspace{25mm}
-
-\begin{center}
-\color{mywhite}
-\smallersize
-
-\renewcommand\arraystretch{2}
-\begin{tabular}{cccccc}
-\hline
-Approach & Speed & Extensibility & Stability & Missing data &
-Parallelization \\
-\hline
-HK & ++ & + & + & -- & ++ \\
-EM & + & $-$ & $-$ & + & $-$ \\
-Imputation & $-$ & + & + & + & + \\
-\hline
-\end{tabular}
-\end{center}
-
-
-
-\newpage
-
-\headsize \color{myyellow}
-\hfill \begin{minipage}{5.75in}
-\centering
-Non-normal traits
-\end{minipage}
-
-
-\vspace{25mm}
-
-\color{mywhite} \smallersize
-\hfill \begin{minipage}{10in}
-\begin{itemize}
-\setlength{\rightskip}{0pt plus 1fil} % makes ragged right
-\itemsep18pt
-\item Standard interval mapping assumes normally distributed residual
-variation.  (Thus the phenotype distribution is a mixture of normals.)
-\item {\color{mypink} In reality}: we see dichotomous traits,
-counts, skewed distributions, outliers, and all sorts of odd things.
-\item Interval mapping, with LOD thresholds derived from permutation
-tests, generally performs just fine anyway.
-\item Alternatives to consider:
-\begin{itemize}
-\smallersize
-\setlength{\rightskip}{0pt plus 1fil} % makes ragged right
-    \item Nonparametric approaches {\color{myblue} (Kruglyak \& Lander 1995)}
-    \item Transformations {\color{myblue} (\emph{e.g.}, log, square root, normal quantiles)}
-    \item Specially-tailored models  {\color{myblue} (\emph{e.g.}, a generalized linear
-    model, the Cox proportional hazard model, and the two-part model
-    in Broman 2003)}
-\end{itemize}
-\end{itemize} \end{minipage}
-
-
-
-
-\newpage
-
-\headsize \color{myyellow}
-$\boldsymbol{\rightarrow}$ R
-
-\vspace{3cm}
-
-\color{mywhite} \smallsize
-
-\hfill \begin{minipage}[t]{9.5in}
-\begin{itemize}
-\itemsep24pt
-\item \verb|nqrank()|
-\item \verb|scanone()| with \verb|model="binary"| or \verb|model="np"|
-\end{itemize} \end{minipage}
-
-
-
-\newpage
-
-\headsize \color{myyellow}
-\hfill \begin{minipage}{5.75in}
-\centering
-Covariates
-\end{minipage}
-
-\smallsize \color{mywhite}
-
-\vspace{25mm}
-
-\hfill
-\begin{minipage}{10in}
-\begin{itemize}
-\setlength{\itemsep}{24pt}
-\item {\color{mypink} Examples}: treatment, sex, age, weight
-
-\item Control residual variation {\color{mypink} $\rightarrow$}
-  increase power
-
-\item Look for QTL $\times$ covariate interactions
-\end{itemize}
-\end{minipage}
-
-\newpage
-
-\headsize \color{myyellow}
-\hfill \begin{minipage}{5.75in}
-\centering
-Additive covariate
-\end{minipage}
-
-\vspace{15mm}
-
-\color{mywhite} \smallsize
-
-\begin{eqnarray*}
-\text{H}_0: y & = & \mu + \beta_x x + \epsilon \\
-\text{H}_a: y & = & \mu + \beta_x x + \beta_q q + \epsilon
-\end{eqnarray*}
-
-\vspace{30mm}
-
-\hspace{0.5in}
-\begin{minipage}{9.5in}
-\begin{itemize}
-\itemsep20pt
-\item If covariate has strong effect on the phenotype, accounting for
-  it can give improved power to detect QTL.
-\item In permutations, keep phenotype and covariate together
-\item Use care when the covariate is another phenotype
-\end{itemize}
-\end{minipage}
-
-\newpage
-
-\headsize \color{myyellow}
-\hfill \begin{minipage}{5.75in}
-\centering
-Additive covariate
-\end{minipage}
-
-\vfill
-
-\centerline{\includegraphics{Figs/addcovar.pdf}}
-
-\newpage
-
-\headsize \color{myyellow}
-\hfill \begin{minipage}{5.75in}
-\centering
-Adjust then scan?
-\end{minipage}
-
-\vspace{15mm}
-
-\color{mywhite} \smallsize
-
-\hspace{0.5in} \begin{minipage}{9.5in}
-  \begin{itemize}
-    \itemsep18pt
-  \item Consider adjusted phenotype $y' = y/x$
-  \item The QTL model is $(y/x) = \mu + \beta_q q + \epsilon$
-  \item Equivalently
-
-$$y = \left\{ \begin{array}{c@{\hspace{1cm}}l} \mu \ x + \epsilon' & \text{if
-      $q = 0$} \\
-    (\mu + \beta_q) x + \epsilon' & \text{if $q =
-      1$} \end{array} \right. $$
-\end{itemize}
-\end{minipage}
-
-
-\newpage
-
-\headsize \color{myyellow}
-\hfill \begin{minipage}{5.75in}
-\centering
-Adjust then scan?
-\end{minipage}
-
-\vfill
-
-\centerline{\includegraphics{Figs/y_over_x.pdf}}
-
-
-
-
-\newpage
-
-\headsize \color{myyellow}
-\hfill \begin{minipage}{5.75in}
-\centering
-Interactive covariate
-\end{minipage}
-
-\vspace{15mm}
-
-\color{mywhite} \smallsize
-
-\begin{eqnarray*}
-\text{H}_0: y & = & \mu + \beta_x x + \epsilon \\
-\text{H}_a: y & = & \mu + \beta_x x + \beta_q q + \epsilon \\
-\text{H}_i: y & = & \mu + \beta_x x + \beta_q q + \gamma x q + \epsilon
-\end{eqnarray*}
-
-\vspace{15mm}
-
-\hspace{0.5in}
-\begin{minipage}{9.5in}
-Can consider 3 LOD scores:
-  \begin{itemize}
-    \item LOD$_a$ comparing H$_a$ and H$_0$
-    \item LOD$_f$ comparing H$_i$ and H$_0$
-    \item LOD$_i$ comparing H$_i$ and H$_a$
-  \end{itemize}
-\end{minipage}
-
-\newpage
-
-\headsize \color{myyellow}
-\hfill \begin{minipage}{5.75in}
-\centering
-Interactive covariate
-\end{minipage}
-
-\vfill
-
-\centerline{\includegraphics{Figs/intcovar.pdf}}
-
-
-\newpage
-
-\headsize \color{myyellow}
-$\boldsymbol{\rightarrow}$ R
-
-\vspace{3cm}
-
-\color{mywhite} \smallsize
-
-\hfill \begin{minipage}[t]{9.5in}
-\begin{itemize}
-\itemsep24pt
-\item \verb|scanone()| with \verb|addcovar| and \verb|intcovar|
-\item \verb|set.seed()| to do permutations
-\end{itemize} \end{minipage}
-
-
-
-\newpage
-
-\headsize \color{myyellow}
-\hfill \begin{minipage}{5.75in}
-\centering
-Split on sex?
-\end{minipage}
-
-\vspace{15mm}
-
-\color{mywhite} \smallsize
-
-\hspace*{0.5in}
-\begin{minipage}[t]{4.1in}
-\vspace*{25mm}
-
-\sloppy
-\smallersize
-\begin{itemize}
-\setlength{\rightskip}{0pt plus 1fil} % makes ragged right
-\item Informative, understandable
-\item But tempting to falsely conclude
-  ``{\color{mypink} sex-specific QTL}''
-\item Absence of evidence {\color{mypink} is not}
-  \emph{evidence of absence}.
-\item Use explicit test of QTL $\times$ sex interaction
-\end{itemize}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{5.3in}
-\vspace*{0mm}
-
-\includegraphics{Figs/covar.pdf}
-\end{minipage}
-
-
-\newpage
-
-\headsize \color{myyellow}
-$\boldsymbol{\rightarrow}$ R
-
-\vspace{3cm}
-
-\color{mywhite} \smallsize
-
-\hfill \begin{minipage}[t]{9.5in}
-\begin{itemize}
-\itemsep24pt
-\item \verb|subset()| to split on sex
-\end{itemize} \end{minipage}
-
 
 
 \newpage
@@ -1389,6 +1032,57 @@ Implications
 \end{itemize}
 \end{minipage}
 
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Modelling multiple QTL
+\end{minipage}
+
+\vspace{2cm}
+
+\color{mywhite} \smallsize
+
+\hfill \begin{minipage}[t]{10in}
+\begin{itemize}
+\itemsep24pt
+\item Reduce residual variation $\implies$ increased power
+
+\item Separate linked QTL
+
+\item Identify interactions among QTL
+
+\end{itemize}
+\end{minipage}
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Epistasis in BC
+\end{minipage}
+
+\vfill
+
+\centerline{\includegraphics{Figs/epistasis_bc.pdf}}
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Epistasis in F$_{\mathsf{2}}$
+\end{minipage}
+
+\vfill
+
+\centerline{\includegraphics{Figs/epistasis_f2.pdf}}
 
 
 
