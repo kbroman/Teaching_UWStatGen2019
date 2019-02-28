@@ -577,6 +577,52 @@ Or use the {\color{mypink} hidden Markov model (HMM)} technology
 
 
 
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+EM algorithm
+\end{minipage}
+
+\vspace{15mm}
+
+\hfill
+\begin{minipage}{10in}
+\color{mywhite} \smallsize
+ Dempster et al.\ (1977)
+\vspace{5mm}
+
+ {\color{mypink} E step}:
+\vspace{5mm}
+
+\hspace{10mm} Let \hspace{5mm} $\mathsf{w_{ij}^{(k)} = \Pr(q_i = j | y_i,\text{marker
+data},\hat{\mu}_0^{(k-1)}, \hat{\mu}_1^{(k-1)},\hat{\sigma}^{(k-1)})}$
+\vspace{5mm}
+
+\hspace{56mm} $\mathsf{ = \frac{p_{ij} \,
+f(y_i; \hat{\mu}_j^{(k-1)},\hat{\sigma}^{(k-1)})}{
+\sum_j p_{ij} \, f(y_i; \hat{\mu}_j^{(k-1)},\hat{\sigma}^{(k-1)})}}$
+\vspace{5mm}
+
+ {\color{mypink} M step}:
+\vspace{5mm}
+
+\hspace{10mm} Let \hspace{5mm} $\mathsf{\hat{\mu}_j^{(k)} = \sum_i y_i w_{ij}^{(k)} / \sum_i
+w_{ij}^{(k)}}$
+\vspace{5mm}
+
+\hspace{31.5mm} $\mathsf{\hat{\sigma}^{(k)} = \sqrt{ \sum_i \sum_j w_{ij}^{(k)}
+(y_i-\hat{\mu}_j^{(k)})^2/n}}$
+\vspace{5mm}
+
+ {\color{mypink} The algorithm}:
+\vspace{5mm}
+
+\hspace{10mm} Start with $\mathsf{w_{ij}^{(1)} = p_{ij}}$; iterate the E \& M steps until
+convergence.
+\end{minipage}
+
 
 
 \newpage
@@ -620,6 +666,20 @@ The phenotypes are independent and identically
 distributed (iid) $\mathsf{N(\mu, \sigma^2)}$.
 \end{minipage}
 \end{minipage}
+
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+Results
+\end{minipage}
+
+\vspace{10mm}
+
+\centerline{\includegraphics{Figs/alod.pdf}}
 
 
 
