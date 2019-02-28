@@ -596,6 +596,59 @@ Or use the {\color{mypink} hidden Markov model (HMM)} technology
 \headsize \color{myyellow}
 \hfill \begin{minipage}{5.75in}
 \centering
+The normal mixtures
+\end{minipage}
+
+\vspace{15mm}
+
+\hspace*{0.5in}
+\begin{minipage}[t]{4.6in}
+\vspace*{10mm}
+
+\color{mywhite} \smallersize
+\setlength{\unitlength}{1.0in}
+\begin{center}
+\begin{picture}(4.5,1)
+% lines
+\Thicklines
+\put(0.25,0.5){\line(1,0){4}}
+\put(0.25,0.35){\line(0,1){0.3}}
+\put(1.65,0.35){\line(0,1){0.3}}
+\put(4.25,0.35){\line(0,1){0.3}}
+
+% text
+\put(0.25,0.1){\makebox(0,0){$\mathsf{M_1}$}}
+\put(4.25,0.1){\makebox(0,0){$\mathsf{M_2}$}}
+\put(1.65,0.1){\makebox(0,0){$\mathsf{Q}$}}
+\put(0.95,0.8){\makebox(0,0){7 cM}}
+\put(2.95,0.8){\makebox(0,0){13 cM}}
+\end{picture} \end{center}
+\vspace{5mm}
+
+\begin{itemize}
+\setlength{\rightskip}{0pt plus 1fil} % makes ragged right
+\item Two markers separated by 20 cM, with the QTL closer to the left marker.
+\item The figure at right shows the distributions of the phenotype
+conditional on the genotypes at the two markers.
+\item The dashed curves correspond to the components of the mixtures.
+\end{itemize}
+
+\end{minipage}
+\hfill
+\begin{minipage}[t]{4.6in}
+\vspace*{0mm}
+
+\includegraphics{Figs/mixtures.pdf}
+\end{minipage}
+
+
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
 EM algorithm
 \end{minipage}
 
@@ -636,6 +689,21 @@ w_{ij}^{(k)}}$
 \hspace{10mm} Start with $\mathsf{w_{ij}^{(1)} = p_{ij}}$; iterate the E \& M steps until
 convergence.
 \end{minipage}
+
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+\href{http://www.biostat.wisc.edu/~kbroman/D3/em_alg/}{Interactive illustration}
+\end{minipage}
+
+\vfill
+
+\centerline{\href{http://www.biostat.wisc.edu/~kbroman/D3/em_alg/}{\includegraphics[height=6.5in]{Figs/em_alg_illustration.png}}}
+
+\vspace*{1cm}
 
 
 
@@ -683,6 +751,7 @@ distributed (iid) $\mathsf{N(\mu, \sigma^2)}$.
 
 
 
+
 \newpage
 
 \headsize \color{myyellow}
@@ -696,6 +765,20 @@ Results
 \centerline{\includegraphics{Figs/alod.pdf}}
 
 
+
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+\href{http://www.biostat.wisc.edu/~kbroman/D3/lod_and_effect/}{Interactive plot}
+\end{minipage}
+
+\vfill
+
+\centerline{\href{http://www.biostat.wisc.edu/~kbroman/D3/lod_and_effect/}{\includegraphics[height=6.5in]{Figs/interactive_lod_curve.png}}}
+
+\vspace*{1cm}
 
 
 
@@ -864,6 +947,19 @@ Permutation results
 \centerline{\includegraphics{Figs/perm_hist.pdf}}
 
 
+\newpage
+
+\headsize \color{myyellow}
+\hfill \begin{minipage}{5.75in}
+\centering
+\href{http://www.biostat.wisc.edu/~kbroman/D3/lod_random/}{Interactive plot}
+\end{minipage}
+
+\vspace{2cm}
+
+\centerline{\href{http://www.biostat.wisc.edu/~kbroman/D3/lod_random}{\includegraphics[width=10in]{Figs/interactive_perm_test.png}}}
+
+\vspace*{1cm}
 
 
 
