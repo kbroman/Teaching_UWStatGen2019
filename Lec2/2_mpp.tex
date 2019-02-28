@@ -891,7 +891,7 @@ Why R/qtl2?
 \headsize \color{myyellow}
 \hfill\begin{minipage}{5.75in}
 \centering
-R/qtl $\rightarrow$ R/qtl2
+Open problems
 \end{minipage}
 
 \vspace{1cm}
@@ -901,23 +901,16 @@ R/qtl $\rightarrow$ R/qtl2
 \hfill \begin{minipage}[t]{9.5in}
 \begin{itemize}
 \setlength{\rightskip}{0pt plus 1fil} % makes ragged right
-\item See
-  \href{http://kbroman.org/qtl2/assets/vignettes/rqtl_diff.html}{\smallestsize
-    \tt kbroman.org/qtl2/assets/vignettes/rqtl\_diff.html}
-\item New data file formats
-\item New data structures
-\item New function names
+\item Analysis of multi-parent populations
   \begin{itemize}
-  \item[] {\color{myblue} \smallersize \verb|read.cross()| $\rightarrow$ \verb|read_cross2()|}
-  \item[] {\color{myblue} \smallersize \verb|calc.genoprob()| $\rightarrow$ \verb|calc_genoprob()|}
-  \item[] {\color{myblue} \smallersize \verb|scanone()| $\rightarrow$ \verb|scan1()|}
+    \item SNP vs haplotype vs random QTL effect
+    \item Identifying causal polymorphisms
   \end{itemize}
-\item Different treatment of intermediate calculations
-\item Use of individual IDs for aligning data
-\item Order of args when subsetting cross objects
+\item Joint analysis of high-dimensional phenotypes
   \begin{itemize}
-  \item[] {\color{myblue} \smallersize \verb|cross[chr,ind]| $\rightarrow$ \verb|cross2[ind,chr]|}
+  \item gene expression, proteins, metabolites, etc.
   \end{itemize}
+\item QTL $\times$ environment interactions
 \end{itemize} \end{minipage}
 
 
