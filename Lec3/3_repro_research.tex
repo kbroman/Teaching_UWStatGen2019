@@ -128,6 +128,12 @@ correspond to those in Figure 2.}
   reproducing it afterwards.}
 \end{frame}
 
+\begin{frame}[c]{}
+\centerline{\Large Which image goes with which experiment?}
+
+\note{For experimental biologists, it can be tricky to keep track of
+  the vast set of images and experiments they perform.}
+\end{frame}
 
 
 \begin{frame}[c]{}
@@ -255,6 +261,33 @@ DerivedData/          Refs/
 Python/               ReadMe.txt
 R/                    ToDo.txt
 Ruby/                 Makefile
+\end{lstlisting}
+\end{semiverbatim}
+\end{minipage}
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}<handout:0>[fragile,c]{1. Organize your data \& code}
+
+\addtocounter{framenumber}{-1}
+
+\begin{center}
+\begin{minipage}[c]{10.3cm}
+\begin{semiverbatim}
+\lstset{basicstyle=\normalsize}
+\begin{lstlisting}[linewidth=10.3cm]
+0_vcf2db.R
+1_prep_geno.R
+2_prep_pheno_clin.R
+2_prep_pheno_otu.R
+3_prep_covar.R
+4_prep_analysis_pheno_clin.R
+4_prep_analysis_pheno_otu.R
+5_scans.R
+6_grab_peaks.R
+7_find_nearby_peaks.R
 \end{lstlisting}
 \end{semiverbatim}
 \end{minipage}
